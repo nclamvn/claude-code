@@ -1,5 +1,9 @@
 # Claude Code — Rebuilt from Leaked Source
 
+> **Disclaimer:** This repository contains proprietary source code belonging to Anthropic that was unintentionally exposed via a source map file (`.js.map`) included in the official `@anthropic-ai/claude-code` npm package. This repository is provided strictly for **educational and research purposes** — to study the architecture, design patterns, and engineering of a production-grade AI coding agent. This project is not affiliated with, endorsed by, or authorized by Anthropic. If you are a representative of Anthropic and wish to have this repository removed, please open an issue or contact the repository owner. **Use at your own risk.** The authors assume no liability for any use or misuse of this code.
+
+---
+
 On March 31, 2026, the full source code of Anthropic's Claude Code CLI was leaked via a `.map` file exposed in their npm registry. This repo contains that source rebuilt into a runnable CLI.
 
 ## Quick Start
@@ -87,6 +91,26 @@ The build script (`build.ts`) uses Bun's bundler to:
 
 Feature flags from `bun:bundle`'s `feature()` all return `false` — internal Anthropic features (voice mode, coordinator mode, etc.) are disabled.
 
-## License
+## Telemetry
 
-This is leaked proprietary source code from Anthropic. Use at your own discretion.
+By default, Claude Code sends telemetry to Anthropic (event logging, Datadog, GrowthBook). To disable all telemetry:
+
+```bash
+DISABLE_TELEMETRY=1 bun dist/cli.js
+```
+
+Or for maximum privacy:
+
+```bash
+DISABLE_TELEMETRY=1 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 bun dist/cli.js
+```
+
+## Disclaimer
+
+This repository contains proprietary source code that was unintentionally made public by Anthropic through their npm package distribution. It is provided here for educational and research purposes only.
+
+- This project is **not affiliated with Anthropic**
+- No warranty is provided, express or implied
+- Users are responsible for their own compliance with applicable laws
+- This repository may be subject to takedown at Anthropic's request
+- **Do not use this for commercial purposes**
